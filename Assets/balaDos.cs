@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class bala : MonoBehaviour
+public class balaDos : MonoBehaviour
 {
     public GameObject jugador;
     public float bulletVel = 4f;
@@ -26,7 +26,7 @@ public class bala : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             enemyCounter++;
-            if (enemyCounter == 12)
+            if (enemyCounter == 16)
             {
                 Time.timeScale = 1f;
                 SceneManager.LoadScene(1);

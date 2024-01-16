@@ -8,6 +8,7 @@ public class enemyRespawn : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player"){
+            Time.timeScale = 1f;
             SceneManager.LoadScene(0);
         }
     }

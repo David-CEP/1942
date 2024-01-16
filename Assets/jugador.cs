@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class jugador : MonoBehaviour
 {
@@ -8,8 +9,6 @@ public class jugador : MonoBehaviour
 
     void Start()
     {
-        
-        
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Player");
         foreach(GameObject enemigo in enemigos)
         {
@@ -42,6 +41,15 @@ public class jugador : MonoBehaviour
             bala.SetActive(true);
             bala.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletVel;
             firstBullet = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(0);
         }
     }
 }
